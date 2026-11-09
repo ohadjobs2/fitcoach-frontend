@@ -789,12 +789,12 @@ const avatarUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${userData?.na
                       <input 
                         type="number" placeholder="kg" disabled={setObj.done} 
                         value={setObj.weight} onChange={(e) => updateLiveSet(exIdx, setIdx, 'weight', e.target.value)} 
-                        className="flex-1 bg-[#0a0b16] border border-white/10 rounded-lg px-2 py-2 text-white text-center text-sm font-bold disabled:opacity-50 focus:border-cyan-400 focus:outline-none"
+                        className="flex-1 min-w-0 w-full bg-[#0a0b16] border border-white/10 rounded-lg px-2 py-2 text-white text-center text-sm font-bold disabled:opacity-50 focus:border-cyan-400 focus:outline-none"
                       />
                       <input 
                         type="number" placeholder="reps" disabled={setObj.done} 
                         value={setObj.reps} onChange={(e) => updateLiveSet(exIdx, setIdx, 'reps', e.target.value)} 
-                        className="flex-1 bg-[#0a0b16] border border-white/10 rounded-lg px-2 py-2 text-white text-center text-sm font-bold disabled:opacity-50 focus:border-cyan-400 focus:outline-none"
+                        className="flex-1 min-w-0 w-full bg-[#0a0b16] border border-white/10 rounded-lg px-2 py-2 text-white text-center text-sm font-bold disabled:opacity-50 focus:border-cyan-400 focus:outline-none"
                       />
                       <button 
                         onClick={() => toggleSetDone(exIdx, setIdx)} 
