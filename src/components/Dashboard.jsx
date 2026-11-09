@@ -104,7 +104,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
  const saveWeightToDB = async (exerciseName, weightToSave) => {
     if (!userId) return;
     try {
-      await fetch('${API_BASE_URL}/api/programs/progress', {
+      await fetch(`${API_BASE_URL}/api/programs/progress`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -257,7 +257,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
       // שולחים את הנתון ישירות לשרת (עם הנתיב המלא /api/programs/progress)
       try {
         if (userId) {
-          await fetch('${API_BASE_URL}/api/programs/progress', { 
+          await fetch(`${API_BASE_URL}/api/programs/progress`, { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
@@ -292,7 +292,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
   // שליחה לשרת (DB) לשמירת הסטטוס של האימון השבועי (V ירוק)
   try {
     if (userId) {
-      await fetch('${API_BASE_URL}/api/programs/finish', {
+      await fetch(`${API_BASE_URL}/api/programs/finish`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, dayIndex: activeWorkout.index, exercises: liveExercises })
@@ -308,7 +308,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
     setIsLoadingAI(true); 
 
     try {
-      const response = await fetch('${API_BASE_URL}/api/programs/generate', { 
+      const response = await fetch(`${API_BASE_URL}/api/programs/generate`, { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -362,7 +362,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
     // 2. עדכון השרת (DB)
     try {
       if (userId) {
-        await fetch('${API_BASE_URL}/api/programs/updateDay', {
+        await fetch(`${API_BASE_URL}/api/programs/updateDay`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userId, dayIndex: manualDayIndex, type: manualWorkoutType, isRest: manualIsRest, exercises: filteredExercises })
         });
@@ -418,7 +418,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
     if (!aiMealPrompt.trim()) return alert("נא לתאר מה אכלת");
     setIsAnalyzingMeal(true);
     try {
-      const response = await fetch('${API_BASE_URL}/api/programs/analyze-meal', { 
+      const response = await fetch(`${API_BASE_URL}/api/programs/analyze-meal`, { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify({ description: aiMealPrompt }) 
@@ -444,7 +444,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
   const handleGenerateDiet = async () => {
     setIsGeneratingDiet(true);
     try {
-      const response = await fetch('${API_BASE_URL}/api/programs/generate-diet', {
+      const response = await fetch(`${API_BASE_URL}/api/programs/generate-diet`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -493,7 +493,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
       const currentUserId = savedUser ? savedUser.id : userId;
 
      if (currentUserId) {
-        await fetch('${API_BASE_URL}/api/meals', {
+        await fetch(`${API_BASE_URL}/api/meals`, {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
@@ -539,7 +539,7 @@ export default function Dashboard({ isSidebarOpen, setIsSidebarOpen, userData, s
 
     try {
       // 2. שליחת בקשה אמיתית לשרת
-      const response = await fetch('${API_BASE_URL}/api/auth/change-password', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/change-password`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
